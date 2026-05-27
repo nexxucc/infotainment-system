@@ -1,8 +1,8 @@
-# 🚗 Automotive Infotainment Interface Simulator
+# Automotive Infotainment Interface Simulator
 
 A software-only automotive infotainment system simulator built with **C++20/Qt 6** and a **Python automation testing framework**. Demonstrates interface development, test automation, OOP, state machines, structured logging, and CI/CD practices.
 
-## ✨ Features
+## Features
 
 - **Qt 6 Desktop UI** — Dark-themed dashboard with media, Bluetooth, navigation, telemetry, and settings panels
 - **State Machine Engine** — Rigorous state management for media playback, Bluetooth connections, call handling, and navigation alerts
@@ -14,7 +14,7 @@ A software-only automotive infotainment system simulator built with **C++20/Qt 6
 - **Failure Replay** — Re-execute failed scenarios from saved failure reports
 - **GitHub Actions CI** — Automated build, test, and report pipeline
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 ┌─────────────────────────────────────────────────────┐
@@ -36,7 +36,7 @@ A software-only automotive infotainment system simulator built with **C++20/Qt 6
 └─────────────────────────────────────────────────────┘
 ```
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Component | Technology |
 |-----------|-----------|
@@ -49,7 +49,7 @@ A software-only automotive infotainment system simulator built with **C++20/Qt 6
 | Scenarios | YAML (PyYAML) |
 | CI | GitHub Actions |
 
-## 📦 Building
+## Building
 
 ### Prerequisites
 
@@ -75,7 +75,7 @@ cmake --build build -j$(nproc)
 
 The command server starts on `127.0.0.1:5555`. Use `--port <N>` to override.
 
-## 🧪 Testing
+## Testing
 
 ### C++ Unit Tests
 
@@ -108,7 +108,7 @@ python framework/scenario_runner.py --suite regression
 python framework/failure_replay.py --failure ../../reports/failures/<file>.json
 ```
 
-## 📡 TCP JSON Protocol
+## TCP JSON Protocol
 
 ### Send a command
 
@@ -137,7 +137,7 @@ echo '{"id":"1","action":"play_media","params":{"track":"song.mp3"}}' | nc local
 | `get_recent_events` | — |
 | `reset_state` | — |
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 ├── app/                    # Qt application
@@ -157,7 +157,3 @@ echo '{"id":"1","action":"play_media","params":{"track":"song.mp3"}}' | nc local
 ├── logs/                   # Structured event logs
 └── reports/                # Test reports and failure replays
 ```
-
-## 📄 License
-
-MIT
