@@ -18,21 +18,20 @@ A software-only automotive infotainment system simulator built with **C++20/Qt 6
 
 ```
 ┌─────────────────────────────────────────────────────┐
-│                    Qt UI Layer                       │
-│  Dashboard │ Media │ BT │ Nav │ Telemetry │ Settings │
+│                    Qt UI Layer                      │
+│ Dashboard │ Media │ BT │ Nav │ Telemetry │ Settings │
 ├─────────────────────────────────────────────────────┤
-│                  StateManager                        │
-│            (single source of truth)                  │
+│                   StateManager                      │
 ├──────────┬──────────┬──────────┬────────────────────┤
 │  Media   │Bluetooth │   Nav    │   Telemetry        │
 │  Manager │ Manager  │ Manager  │   Manager          │
 ├──────────┴──────────┴──────────┴────────────────────┤
-│           EventBus  │  Logger  │  InputValidator     │
+│           EventBus  │  Logger  │  InputValidator    │
 ├─────────────────────────────────────────────────────┤
-│              TCP CommandServer (:5555)               │
+│                  TCP CommandServer                  │
 ├─────────────────────────────────────────────────────┤
-│            Python Automation Framework               │
-│     scenario_runner │ validators │ report_gen        │
+│            Python Automation Framework              │
+│     scenario_runner │ validators │ report_gen       │
 └─────────────────────────────────────────────────────┘
 ```
 
