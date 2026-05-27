@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Infotainment Response",
+  "type": "object",
+  "required": ["id", "status", "message"],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["ok", "error"]
+    },
+    "error_code": {
+      "type": ["string", "null"],
+      "enum": [
+        null,
+        "INVALID_JSON", "UNKNOWN_ACTION", "MISSING_FIELD",
+        "INVALID_FIELD_TYPE", "VALUE_OUT_OF_RANGE",
+        "INVALID_STATE_TRANSITION", "INTERNAL_ERROR"
+      ]
+    },
+    "message": {
+      "type": "string"
+    },
+    "state": {
+      "type": "object"
+    }
+  }
+}

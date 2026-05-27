@@ -1,0 +1,36 @@
+test_name: incoming_call_should_pause_media
+description: Incoming call pauses active media and displays call overlay.
+preconditions:
+  reset_state: true
+steps:
+  - action: play_media
+    params:
+      track: test_track.mp3
+    expect:
+      status: ok
+      state:
+        media_state: playing
+
+  - action: connect_bluetooth
+    params:
+      device: Pixel 7
+    expect:
+      status: ok
+      state:
+        bluetooth_state: connected
+
+  - action: incoming_call
+    params:
+      caller: "+919999999999"
+    expect:
+      status: ok
+      state:
+        media_state: paused
+        call_state: ringing
+        active_screen: call_overlay
+
+final_expect:
+  state:
+    media_state: paused
+    call_state: ringing
+    active_screen: call_overlay

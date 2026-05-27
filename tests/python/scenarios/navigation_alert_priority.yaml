@@ -1,0 +1,45 @@
+test_name: navigation_alert_priority
+description: Navigation alert must not override call overlay during active call.
+preconditions:
+  reset_state: true
+steps:
+  - action: connect_bluetooth
+    params:
+      device: Pixel 7
+    expect:
+      status: ok
+      state:
+        bluetooth_state: connected
+
+  - action: incoming_call
+    params:
+      caller: "+919999999999"
+    expect:
+      status: ok
+      state:
+        call_state: ringing
+        active_screen: call_overlay
+
+  - action: accept_call
+    params: {}
+    expect:
+      status: ok
+      state:
+        call_state: active
+        active_screen: call_overlay
+
+  - action: start_navigation_alert
+    params:
+      message: "Turn left in 200m"
+      priority: high
+    expect:
+      status: ok
+      state:
+        navigation_state: alert_active
+        active_screen: call_overlay
+
+final_expect:
+  state:
+    call_state: active
+    navigation_state: alert_active
+    active_screen: call_overlay

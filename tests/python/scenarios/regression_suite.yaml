@@ -1,0 +1,7 @@
+test_name: regression_suite
+description: Full regression test suite referencing all individual scenarios.
+scenarios:
+  - media_playback.yaml
+  - incoming_call_pauses_media.yaml
+  - navigation_alert_priority.yaml
+  - invalid_inputs.yaml

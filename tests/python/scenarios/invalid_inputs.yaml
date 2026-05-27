@@ -1,0 +1,47 @@
+test_name: invalid_inputs
+description: Verify that invalid inputs are properly rejected without mutating state.
+preconditions:
+  reset_state: true
+steps:
+  - action: pause_media
+    params: {}
+    expect:
+      status: error
+
+  - action: stop_media
+    params: {}
+    expect:
+      status: error
+
+  - action: incoming_call
+    params:
+      caller: "+919999999999"
+    expect:
+      status: error
+
+  - action: accept_call
+    params: {}
+    expect:
+      status: error
+
+  - action: end_call
+    params: {}
+    expect:
+      status: error
+
+  - action: get_state
+    params: {}
+    expect:
+      status: ok
+      state:
+        media_state: stopped
+        bluetooth_state: disconnected
+        call_state: idle
+
+final_expect:
+  state:
+    media_state: stopped
+    bluetooth_state: disconnected
+    call_state: idle
+    navigation_state: idle
+    active_screen: dashboard

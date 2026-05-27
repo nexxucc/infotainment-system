@@ -1,0 +1,42 @@
+# Build
+build/
+cmake-build-*/
+*.o
+*.a
+*.so
+*.dylib
+
+# Qt
+moc_*
+*.pro.user
+ui_*.h
+qrc_*.cpp
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.cache/
+compile_commands.json
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+*.egg-info/
+dist/
+venv/
+.venv/
+
+# Logs and reports (keep structure, ignore content)
+logs/*.jsonl
+reports/*.json
+reports/*.md
+reports/failures/*.json
+
+# OS
+.DS_Store
+Thumbs.db

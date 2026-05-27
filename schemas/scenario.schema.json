@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Test Scenario",
+  "type": "object",
+  "required": ["test_name", "steps"],
+  "properties": {
+    "test_name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "preconditions": {
+      "type": "object",
+      "properties": {
+        "reset_state": { "type": "boolean" }
+      }
+    },
+    "steps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["action"],
+        "properties": {
+          "action": { "type": "string" },
+          "params": { "type": "object" },
+          "expect": {
+            "type": "object",
+            "properties": {
+              "status": { "type": "string", "enum": ["ok", "error"] },
+              "error_code": { "type": "string" },
+              "state": { "type": "object" }
+            }
+          }
+        }
+      }
+    },
+    "final_expect": {
+      "type": "object",
+      "properties": {
+        "state": { "type": "object" }
+      }
+    }
+  }
+}

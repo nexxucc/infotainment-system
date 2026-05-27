@@ -1,0 +1,48 @@
+test_name: media_playback
+description: Test basic media playback controls - play, pause, resume, stop.
+preconditions:
+  reset_state: true
+steps:
+  - action: play_media
+    params:
+      track: test_track.mp3
+    expect:
+      status: ok
+      state:
+        media_state: playing
+        track: test_track.mp3
+
+  - action: set_volume
+    params:
+      volume: 75
+    expect:
+      status: ok
+      state:
+        volume: 75
+
+  - action: pause_media
+    params: {}
+    expect:
+      status: ok
+      state:
+        media_state: paused
+
+  - action: play_media
+    params:
+      track: test_track.mp3
+    expect:
+      status: ok
+      state:
+        media_state: playing
+
+  - action: stop_media
+    params: {}
+    expect:
+      status: ok
+      state:
+        media_state: stopped
+
+final_expect:
+  state:
+    media_state: stopped
+    volume: 75

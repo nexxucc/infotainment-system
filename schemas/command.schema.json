@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Infotainment Command",
+  "type": "object",
+  "required": ["id", "action", "params"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique command identifier"
+    },
+    "action": {
+      "type": "string",
+      "enum": [
+        "play_media", "pause_media", "stop_media", "next_media", "previous_media",
+        "set_volume", "connect_bluetooth", "disconnect_bluetooth",
+        "incoming_call", "accept_call", "reject_call", "end_call",
+        "start_navigation_alert", "end_navigation_alert",
+        "update_telemetry", "change_setting", "switch_screen",
+        "queue_notification", "display_notification",
+        "get_state", "get_recent_events", "reset_state"
+      ]
+    },
+    "params": {
+      "type": "object"
+    }
+  }
+}
